@@ -32,11 +32,18 @@
     "highlight": "Điểm nổi bật"
   },
   "About": {
-    "eyebrow": "Giới thiệu",
-    "title": "Đôi nét về tôi.",
-    "paragraph1": "Tôi là một lập trình viên tin rằng phần mềm tốt nhất là phần mềm vô hình. Công việc của tôi được dẫn dắt bởi sự rõ ràng — trong code, trong thiết kế và trong cách người dùng trải nghiệm sản phẩm.",
-    "paragraph2": "Tôi tập trung vào giao điểm giữa kỹ thuật và thiết kế, tạo ra sản phẩm không chỉ vững về công nghệ mà còn thật sự dễ chịu khi sử dụng. Mỗi pixel, mỗi tương tác — đều quan trọng.",
-    "techLabel": "Công nghệ",
+    "eyebrow": "Người xây sản phẩm",
+    "title": "Tôi thiết kế và xây dựng những sản phẩm số đáng để dùng mỗi ngày.",
+    "paragraph1": "Tôi là một người trẻ nghiêm túc với nghề: định hình hướng đi của sản phẩm, chăm chút từng chi tiết thiết kế và viết code để biến ý tưởng thành sản phẩm thật.",
+    "paragraph2": "Tôi coi trọng cả tốc độ tiến lên lẫn độ hoàn thiện — đưa ý tưởng đi xa hơn bằng sự tò mò, kỷ luật và tiêu chuẩn cao cho trải nghiệm người dùng.",
+    "principlesLabel": "Cách tôi xây dựng",
+    "principleIntentTitle": "Xây bằng chủ đích",
+    "principleIntentBody": "Mỗi quyết định cần khiến sản phẩm rõ ràng và hữu ích hơn.",
+    "principleCraftTitle": "Thiết kế có chiều sâu",
+    "principleCraftBody": "Chi tiết thị giác và chất lượng kỹ thuật luôn đi cùng nhau.",
+    "principleMomentumTitle": "Luôn tiến về phía trước",
+    "principleMomentumBody": "Sự tò mò, tập trung và cải tiến đều đặn biến ý tưởng ban đầu thành sản phẩm thật.",
+    "techLabel": "Bộ công cụ",
     "journeyLabel": "Hành trình"
   },
   "Contact": {
@@ -51,7 +58,10 @@
     "messagePlaceholder": "Hãy kể cho tôi về dự án của bạn...",
     "buttonIdle": "Gửi tin nhắn",
     "buttonSent": "Đang mở ứng dụng email...",
-    "subjectPrefix": "Liên hệ từ Portfolio"
+    "subjectPrefix": "Liên hệ từ Portfolio",
+    "socialLabel": "Kết nối chuyên nghiệp",
+    "discordCopyLabel": "Sao chép Discord {username}",
+    "discordCopied": "Đã sao chép tên Discord"
   },
   "Footer": {
     "copyright": "Mọi quyền được bảo lưu.",

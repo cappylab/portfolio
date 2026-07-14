@@ -32,11 +32,18 @@
     "highlight": "주요 결과"
   },
   "About": {
-    "eyebrow": "소개",
-    "title": "저에 대해 간단히.",
-    "paragraph1": "저는 가장 좋은 소프트웨어는 보이지 않는다고 믿는 개발자입니다. 코드, 디자인, 그리고 사람들이 제가 만든 것을 경험하는 방식 — 모든 작업은 명료함에서 시작됩니다.",
-    "paragraph2": "엔지니어링과 디자인이 만나는 지점에서, 기술적으로 탄탄할 뿐 아니라 사용하는 것 자체가 즐거운 제품을 만듭니다. 픽셀 하나, 인터랙션 하나 — 모두가 중요합니다.",
-    "techLabel": "기술 스택",
+    "eyebrow": "프로덕트 빌더",
+    "title": "매일 쓰고 싶은 디지털 제품을 디자인하고 만듭니다.",
+    "paragraph1": "저는 일의 본질을 진지하게 다루는 젊은 빌더입니다. 제품의 방향을 잡고, 디테일을 설계하며, 아이디어를 실제로 작동하는 코드로 만듭니다.",
+    "paragraph2": "완성도만큼 추진력도 중요하게 생각합니다. 호기심과 절제, 사용자가 실제로 마주하는 경험에 대한 높은 기준으로 아이디어를 앞으로 나아가게 합니다.",
+    "principlesLabel": "만드는 방식",
+    "principleIntentTitle": "의도를 담아 만듭니다",
+    "principleIntentBody": "모든 결정은 제품을 더 명확하고 유용하게 해야 합니다.",
+    "principleCraftTitle": "세심하게 설계합니다",
+    "principleCraftBody": "시각적 디테일과 기술적 완성도는 함께 다뤄야 합니다.",
+    "principleMomentumTitle": "계속 앞으로 나아갑니다",
+    "principleMomentumBody": "호기심과 집중, 꾸준한 반복이 초기 아이디어를 실제 제품으로 만듭니다.",
+    "techLabel": "툴박스",
     "journeyLabel": "여정"
   },
   "Contact": {
@@ -51,7 +58,10 @@
     "messagePlaceholder": "프로젝트에 대해 말씀해 주세요...",
     "buttonIdle": "메시지 보내기",
     "buttonSent": "이메일 앱을 여는 중...",
-    "subjectPrefix": "포트폴리오 문의"
+    "subjectPrefix": "포트폴리오 문의",
+    "socialLabel": "전문가 프로필",
+    "discordCopyLabel": "Discord 사용자 이름 {username} 복사",
+    "discordCopied": "Discord 사용자 이름을 복사했습니다"
   },
   "Footer": {
     "copyright": "All rights reserved.",

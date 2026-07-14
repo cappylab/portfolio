@@ -32,11 +32,18 @@
     "highlight": "Highlight"
   },
   "About": {
-    "eyebrow": "About",
-    "title": "A little about me.",
-    "paragraph1": "I'm a developer who believes the best software feels invisible. My work is guided by clarity — in code, in design, and in how people experience what I build.",
-    "paragraph2": "I focus on the intersection of engineering and design, creating products that are not only technically sound but genuinely pleasant to use. Every pixel, every interaction — it all matters.",
-    "techLabel": "Technologies",
+    "eyebrow": "Product builder",
+    "title": "I design and build digital products worth using every day.",
+    "paragraph1": "I am a young builder who takes the craft seriously: shaping product direction, designing the details, and writing the code that makes ideas real.",
+    "paragraph2": "I care about momentum as much as polish — moving ideas forward with curiosity, discipline, and a high bar for the experience people actually use.",
+    "principlesLabel": "How I build",
+    "principleIntentTitle": "Built with intent",
+    "principleIntentBody": "Every decision should make the product clearer and more useful.",
+    "principleCraftTitle": "Designed with care",
+    "principleCraftBody": "Visual detail and technical quality belong in the same conversation.",
+    "principleMomentumTitle": "Always moving forward",
+    "principleMomentumBody": "Curiosity, focus, and steady iteration turn early ideas into real products.",
+    "techLabel": "Toolbox",
     "journeyLabel": "Journey"
   },
   "Contact": {
@@ -51,7 +58,10 @@
     "messagePlaceholder": "Tell me about your project...",
     "buttonIdle": "Send Message",
     "buttonSent": "Opening email client...",
-    "subjectPrefix": "Portfolio Contact"
+    "subjectPrefix": "Portfolio Contact",
+    "socialLabel": "Professional links",
+    "discordCopyLabel": "Copy Discord username {username}",
+    "discordCopied": "Discord username copied"
   },
   "Footer": {
     "copyright": "All rights reserved.",
