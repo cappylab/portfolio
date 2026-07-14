@@ -289,23 +289,13 @@ body {
   background-clip: text;
 }
 
-.hero-signature {
+.hero-backdrop {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  display: flex;
-  width: max-content;
-  transform: translate(-50%, -47%);
-  color: rgba(167, 139, 250, 0.09);
-  font-size: clamp(11rem, 31vw, 34rem);
-  font-weight: 650;
-  letter-spacing: -0.18em;
-  line-height: 0.75;
+  inset: 0;
   pointer-events: none;
-  user-select: none;
-}
-.hero-signature span:last-child {
-  color: rgba(56, 189, 248, 0.07);
+  background:
+    radial-gradient(ellipse 48% 40% at 50% 45%, rgba(99, 102, 241, 0.1), transparent 76%),
+    radial-gradient(ellipse 30% 26% at 72% 68%, rgba(14, 165, 233, 0.045), transparent 82%);
 }
 
 /* ===== Project Card Interaction ===== */

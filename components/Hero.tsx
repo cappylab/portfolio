@@ -6,14 +6,7 @@ export default async function Hero() {
 
   return (
     <section className="relative min-h-[100svh] flex flex-col items-center justify-center px-6 text-center overflow-hidden">
-      <div className="absolute top-[20%] left-[15%] w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] rounded-full bg-sky-400/[0.04] blur-[60px] pointer-events-none" />
-      <div className="absolute bottom-[15%] right-[15%] w-[200px] sm:w-[350px] h-[200px] sm:h-[350px] rounded-full bg-violet-400/[0.035] blur-[60px] pointer-events-none" />
-      <div className="absolute top-[45%] right-[30%] w-[180px] sm:w-[250px] h-[180px] sm:h-[250px] rounded-full bg-fuchsia-400/[0.025] blur-[48px] pointer-events-none" />
-
-      <div data-testid="hero-signature" aria-hidden="true" className="hero-signature">
-        <span>H</span>
-        <span>J</span>
-      </div>
+      <div data-testid="hero-backdrop" aria-hidden="true" className="hero-backdrop" />
 
       <div className="relative z-10 max-w-3xl">
         <p className="reveal text-[12px] sm:text-[13px] text-white/55 tracking-[0.12em] uppercase mb-6 sm:mb-8">

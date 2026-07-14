@@ -50,12 +50,11 @@ test.describe("Home page", () => {
     await expect(work.locator("iframe")).toHaveCount(0);
   });
 
-  test("uses a decorative lightweight hero signature", async ({ page }) => {
+  test("uses a quiet hero backdrop without decorative gimmicks", async ({ page }) => {
     await page.goto(BASE);
-    await expect(page.getByTestId("hero-signature")).toBeVisible();
-    await expect(
-      page.locator(".bg-ambient .orb, .bg-ambient .orb-reverse")
-    ).toHaveCount(0);
+    await expect(page.getByTestId("hero-backdrop")).toBeVisible();
+    await expect(page.getByTestId("hero-signature")).toHaveCount(0);
+    await expect(page.locator(".hero-backdrop > div")).toHaveCount(0);
   });
 
   test("lists all projects on the catalogue route", async ({ page }) => {
