@@ -39,6 +39,34 @@ test.describe("Home page", () => {
     );
   });
 
+  test("shows project context without restoring live previews", async ({ page }) => {
+    await page.goto(BASE);
+    const work = page.locator("#work");
+    const heyNabi = work.locator("article").filter({ hasText: "Hey Nabi" });
+
+    await expect(heyNabi).toContainText("AI Product");
+    await expect(heyNabi).toContainText("Full-stack developer");
+    await expect(heyNabi).toContainText("5-language real-time translation");
+    await expect(work.locator("iframe")).toHaveCount(0);
+  });
+
+  test("uses a decorative lightweight hero signature", async ({ page }) => {
+    await page.goto(BASE);
+    await expect(page.getByTestId("hero-signature")).toBeVisible();
+    await expect(
+      page.locator(".bg-ambient .orb, .bg-ambient .orb-reverse")
+    ).toHaveCount(0);
+  });
+
+  test("lists all projects on the catalogue route", async ({ page }) => {
+    await page.goto(`${BASE}/work`);
+    await expect(
+      page.getByRole("heading", { name: "All work" })
+    ).toBeVisible();
+    await expect(page.locator("article")).toHaveCount(3);
+    await expect(page.locator("article").first()).toContainText("Hey Nabi");
+  });
+
   test("localizes the project-card overlay", async ({ page }) => {
     await page.goto(`${BASE}/ko`);
     await expect(
