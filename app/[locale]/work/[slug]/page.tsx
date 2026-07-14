@@ -134,6 +134,16 @@ export default async function CaseStudy({
               {t("visitSite")} ↗
             </a>
           )}
+          {project.meta.repository && (
+            <a
+              href={project.meta.repository}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 ml-5 mt-6 text-[13px] text-white/50 hover:text-white/80 transition-colors duration-300"
+            >
+              {t("viewSource")} ↗
+            </a>
+          )}
         </header>
 
         <div className="flex flex-wrap gap-2 mb-10">

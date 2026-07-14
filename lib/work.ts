@@ -9,6 +9,8 @@ export interface ProjectMeta {
   slug: string;
   subtitle: string;
   description: string;
+  thumbnail: string;
+  repository?: string;
   tech: string[];
   orb: string;
   link?: string;

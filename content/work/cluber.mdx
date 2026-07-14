@@ -1,0 +1,42 @@
+export const meta = {
+  title: "Cluber",
+  slug: "cluber",
+  subtitle: "Club management system",
+  description: "An online club-member and fee-management app built for a Python final project.",
+  thumbnail: "/images/projects/cluber.webp",
+  tech: ["Python", "Next.js", "TypeScript", "PostgreSQL", "Tailwind CSS", "Vercel"],
+  orb: "#a78bfa",
+  link: "https://cluber-seven.vercel.app",
+  repository: "https://github.com/cappylab/cluber",
+  metrics: [
+    { value: "3", label: "Python Domain Classes" },
+    { value: "2", label: "Member Types" },
+    { value: "1", label: "Admin Workspace" },
+  ],
+}
+
+## The Challenge
+
+A small club needs dependable member and fee management while preserving the object-oriented concepts required by a Python final project.
+
+## The Solution
+
+Cluber combines a Next.js interface with a Python domain layer. `Member`, `Officer`, and `ClubManager` model club rules, while PostgreSQL persists members and payments. The application supports authenticated administration, member search, contact updates, fee collection, statistics, and ranking.
+
+<LivePreview
+  url="https://cluber-seven.vercel.app"
+  title="Cluber"
+  thumbnail="/images/projects/cluber.webp"
+/>
+
+## The Result
+
+The final project turns a class-based Python assignment into an accessible deployed application. The domain layer stays separate from web and persistence layers, so member-management logic remains independently testable.
+
+## Key Features
+
+- **Member management:** add, search, update, and remove members.
+- **Inheritance:** distinguish standard members from officers.
+- **Fee tracking:** record cumulative payments and payment status.
+- **Statistics and ranking:** calculate totals, averages, role counts, and fee rankings.
+- **Persistent administration:** protect the workspace and store data in PostgreSQL.

@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-const BASE = "http://localhost:3000";
+const BASE = process.env.PLAYWRIGHT_BASE_URL ?? "http://localhost:3100";
 
 test.describe("Home page", () => {
   test("loads hero section", async ({ page }) => {
@@ -22,6 +22,28 @@ test.describe("Home page", () => {
     await page.goto(BASE);
     const card = page.locator("article").filter({ hasText: "MyCar" }).first();
     await expect(card).toBeVisible();
+  });
+
+  test("renders three lazy static project previews without iframes", async ({ page }) => {
+    await page.goto(BASE);
+    const work = page.locator("#work");
+
+    await expect(work.locator("article")).toHaveCount(3);
+    await expect(work.locator("iframe")).toHaveCount(0);
+    await expect(work.getByAltText("Preview of Hey Nabi")).toBeVisible();
+    await expect(work.getByAltText("Preview of MyCar")).toBeVisible();
+    await expect(work.getByAltText("Preview of Cluber")).toBeVisible();
+    await expect(work.getByAltText("Preview of Cluber")).toHaveAttribute(
+      "loading",
+      "lazy"
+    );
+  });
+
+  test("localizes the project-card overlay", async ({ page }) => {
+    await page.goto(`${BASE}/ko`);
+    await expect(
+      page.locator("#work .live-preview").first().getByText("사례 연구 보기")
+    ).toBeAttached();
   });
 
   test("contact form renders", async ({ page }) => {
@@ -73,8 +95,11 @@ test.describe("Blog", () => {
 
   test("blog post has table of contents", async ({ page }) => {
     await page.goto(`${BASE}/blog/building-liquid-glass-ui`);
-    const tocHeading = page.getByText("Table of Contents");
-    await expect(tocHeading.first()).toBeVisible();
+    await expect(
+      page
+        .getByRole("complementary")
+        .getByRole("link", { name: "The Three Layers", exact: true })
+    ).toBeVisible();
   });
 });
 
@@ -94,8 +119,21 @@ test.describe("Case Study", () => {
 
   test("case study has metrics", async ({ page }) => {
     await page.goto(`${BASE}/work/heynabi`);
-    await expect(page.getByText("99%")).toBeVisible();
-    await expect(page.getByText("STT Accuracy")).toBeVisible();
+    await expect(page.getByText("99%", { exact: true })).toBeVisible();
+    await expect(page.getByText("STT Accuracy", { exact: true })).toBeVisible();
+  });
+
+  test("Cluber case study exposes the deployed app and source code", async ({ page }) => {
+    await page.goto(`${BASE}/work/cluber`);
+    await expect(page.locator("h1")).toContainText("Cluber");
+    await expect(page.getByRole("link", { name: "Visit live site" })).toHaveAttribute(
+      "href",
+      "https://cluber-seven.vercel.app"
+    );
+    await expect(page.getByRole("link", { name: "View source" })).toHaveAttribute(
+      "href",
+      "https://github.com/cappylab/cluber"
+    );
   });
 });
 
@@ -115,6 +153,7 @@ test.describe("RSS & SEO", () => {
     const body = await res.text();
     expect(body).toContain("<urlset");
     expect(body).toContain("/work/mycar");
+    expect(body).toContain("/work/cluber");
     expect(body).toContain("/blog/building-liquid-glass-ui");
   });
 

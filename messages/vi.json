@@ -23,7 +23,8 @@
   },
   "Work": {
     "eyebrow": "Dự án chọn lọc",
-    "title": "Những gì tôi đã xây."
+    "title": "Những gì tôi đã xây.",
+    "viewCaseStudy": "Xem case study"
   },
   "About": {
     "eyebrow": "Giới thiệu",
@@ -79,6 +80,7 @@
     "features": "Tính năng chính",
     "backToWork": "Quay lại dự án",
     "visitSite": "Xem trang web",
+    "viewSource": "Xem mã nguồn",
     "livePreviewAria": "Xem trước trực tiếp {title}",
     "previousProject": "Trước",
     "nextProject": "Sau",

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { startTransition, useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 
 interface Heading {
@@ -25,7 +25,9 @@ export default function TableOfContents() {
       text: el.textContent ?? "",
       level: el.tagName === "H2" ? 2 : 3,
     }));
-    setHeadings(items);
+    startTransition(() => {
+      setHeadings(items);
+    });
   }, []);
 
   useEffect(() => {

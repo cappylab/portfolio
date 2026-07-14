@@ -23,7 +23,8 @@
   },
   "Work": {
     "eyebrow": "Selected Work",
-    "title": "Things I've built."
+    "title": "Things I've built.",
+    "viewCaseStudy": "View case study"
   },
   "About": {
     "eyebrow": "About",
@@ -79,6 +80,7 @@
     "features": "Key Features",
     "backToWork": "Back to work",
     "visitSite": "Visit live site",
+    "viewSource": "View source",
     "livePreviewAria": "Live preview of {title}",
     "previousProject": "Previous",
     "nextProject": "Next",

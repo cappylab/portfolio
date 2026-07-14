@@ -369,26 +369,6 @@ button:hover .link-arrow {
   overflow: hidden;
 }
 
-.live-preview-iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 1280px;
-  height: 800px;
-  transform-origin: top left;
-  transform: scale(var(--preview-scale, 0.234));
-  border: none;
-  pointer-events: none;
-  background: #000;
-}
-
-@keyframes preview-spin {
-  to { transform: rotate(360deg); }
-}
-.live-preview-pulse {
-  animation: preview-spin 1s linear infinite;
-}
-
 /* ===== Scrollbar ===== */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }

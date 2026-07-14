@@ -23,7 +23,8 @@
   },
   "Work": {
     "eyebrow": "선별 작업물",
-    "title": "만들어 온 것들."
+    "title": "만들어 온 것들.",
+    "viewCaseStudy": "사례 연구 보기"
   },
   "About": {
     "eyebrow": "소개",
@@ -79,6 +80,7 @@
     "features": "주요 기능",
     "backToWork": "작업으로 돌아가기",
     "visitSite": "사이트 방문",
+    "viewSource": "소스 코드 보기",
     "livePreviewAria": "{title} 실시간 미리보기",
     "previousProject": "이전",
     "nextProject": "다음",
