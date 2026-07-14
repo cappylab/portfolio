@@ -1,5 +1,5 @@
 import { setRequestLocale } from "next-intl/server";
-import { getAllProjects } from "@/lib/work";
+import { getFeaturedProjects } from "@/lib/work";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Work from "@/components/Work";
@@ -25,7 +25,7 @@ export default async function Home({
 
       <Hero />
 
-      <Work projects={getAllProjects()} />
+      <Work projects={getFeaturedProjects()} />
       <div className="max-w-[400px] mx-auto"><div className="section-divider" /></div>
 
       <About />

@@ -180,6 +180,7 @@ test.describe("RSS & SEO", () => {
     expect(res.status()).toBe(200);
     const body = await res.text();
     expect(body).toContain("<urlset");
+    expect(body).toContain("<loc>https://jeonghamin.dev/work</loc>");
     expect(body).toContain("/work/mycar");
     expect(body).toContain("/work/cluber");
     expect(body).toContain("/blog/building-liquid-glass-ui");

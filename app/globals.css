@@ -67,8 +67,8 @@ body {
 .liquid-glass {
   position: relative;
   background: rgba(255, 255, 255, 0.06);
-  -webkit-backdrop-filter: blur(40px) saturate(180%) brightness(1.1);
-  backdrop-filter: blur(40px) saturate(180%) brightness(1.1);
+  -webkit-backdrop-filter: blur(20px) saturate(160%) brightness(1.08);
+  backdrop-filter: blur(20px) saturate(160%) brightness(1.08);
   border: 0.5px solid rgba(255, 255, 255, 0.1);
   border-radius: 1.5rem;
   box-shadow:
@@ -118,8 +118,8 @@ body {
 .liquid-glass-elevated {
   position: relative;
   background: rgba(255, 255, 255, 0.08);
-  -webkit-backdrop-filter: blur(60px) saturate(200%) brightness(1.15);
-  backdrop-filter: blur(60px) saturate(200%) brightness(1.15);
+  -webkit-backdrop-filter: blur(24px) saturate(170%) brightness(1.1);
+  backdrop-filter: blur(24px) saturate(170%) brightness(1.1);
   border: 0.5px solid rgba(255, 255, 255, 0.12);
   border-radius: 1.5rem;
   box-shadow:
@@ -165,8 +165,8 @@ body {
 /* --- Subtle Glass: thin, background-level --- */
 .liquid-glass-subtle {
   background: rgba(255, 255, 255, 0.03);
-  -webkit-backdrop-filter: blur(20px) saturate(150%);
-  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  backdrop-filter: blur(12px) saturate(150%);
   border: 0.5px solid rgba(255, 255, 255, 0.05);
   border-radius: 1rem;
 }
@@ -174,16 +174,16 @@ body {
 /* --- Nav Glass: Apple-style frozen nav bar --- */
 .liquid-glass-nav {
   background: rgba(0, 0, 0, 0.4);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  backdrop-filter: blur(14px) saturate(160%);
   border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
 }
 
 /* --- Pill Glass: for tags, small controls --- */
 .liquid-glass-pill {
   background: rgba(255, 255, 255, 0.04);
-  -webkit-backdrop-filter: blur(12px) saturate(160%);
-  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(8px) saturate(150%);
+  backdrop-filter: blur(8px) saturate(150%);
   border: 0.5px solid rgba(255, 255, 255, 0.06);
   border-radius: 999px;
   transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
@@ -202,6 +202,20 @@ body {
   inset: 0;
   z-index: 0;
   pointer-events: none;
+}
+
+@media (max-width: 639px) {
+  .liquid-glass,
+  .liquid-glass-elevated {
+    -webkit-backdrop-filter: blur(10px) saturate(140%);
+    backdrop-filter: blur(10px) saturate(140%);
+  }
+  .liquid-glass-subtle,
+  .liquid-glass-nav,
+  .liquid-glass-pill {
+    -webkit-backdrop-filter: blur(6px) saturate(135%);
+    backdrop-filter: blur(6px) saturate(135%);
+  }
 }
 
 /* ===== Language Dropdown ===== */
@@ -275,12 +289,30 @@ body {
   background-clip: text;
 }
 
+.hero-signature {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  width: max-content;
+  transform: translate(-50%, -47%);
+  color: rgba(167, 139, 250, 0.09);
+  font-size: clamp(11rem, 31vw, 34rem);
+  font-weight: 650;
+  letter-spacing: -0.18em;
+  line-height: 0.75;
+  pointer-events: none;
+  user-select: none;
+}
+.hero-signature span:last-child {
+  color: rgba(56, 189, 248, 0.07);
+}
+
 /* ===== Project Card Interaction ===== */
 .project-card {
   transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1),
               border-color 0.6s cubic-bezier(0.25, 1, 0.5, 1),
               box-shadow 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-  will-change: transform;
 }
 .project-card:hover {
   transform: translateY(-4px);
@@ -305,23 +337,6 @@ button:hover .link-arrow {
   height: 0.5px;
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
 }
-
-/* ===== Floating Orbs — gives glass something to refract ===== */
-@keyframes drift {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(40px, -30px) scale(1.05); }
-  50% { transform: translate(-20px, 20px) scale(0.97); }
-  75% { transform: translate(30px, 10px) scale(1.03); }
-}
-@keyframes drift-reverse {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(-30px, 25px) scale(0.96); }
-  50% { transform: translate(25px, -20px) scale(1.04); }
-  75% { transform: translate(-15px, -10px) scale(1.01); }
-}
-
-.orb { animation: drift 25s ease-in-out infinite; }
-.orb-reverse { animation: drift-reverse 30s ease-in-out infinite; }
 
 /* ===== Button ===== */
 .btn-liquid {

@@ -24,7 +24,12 @@
   "Work": {
     "eyebrow": "Selected Work",
     "title": "Things I've built.",
-    "viewCaseStudy": "View case study"
+    "viewCaseStudy": "View case study",
+    "catalogueEyebrow": "Project archive",
+    "catalogueTitle": "All work.",
+    "allWork": "View all work",
+    "role": "Role",
+    "highlight": "Highlight"
   },
   "About": {
     "eyebrow": "About",

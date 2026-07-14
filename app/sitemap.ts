@@ -41,6 +41,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     entry("/", now, "monthly", 1),
     entry("/blog", now, "weekly", 0.8),
+    entry("/work", now, "monthly", 0.8),
     ...workEntries,
     ...blogEntries,
   ];

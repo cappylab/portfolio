@@ -24,7 +24,12 @@
   "Work": {
     "eyebrow": "Dự án chọn lọc",
     "title": "Những gì tôi đã xây.",
-    "viewCaseStudy": "Xem case study"
+    "viewCaseStudy": "Xem case study",
+    "catalogueEyebrow": "Kho dự án",
+    "catalogueTitle": "Tất cả dự án.",
+    "allWork": "Xem tất cả dự án",
+    "role": "Vai trò",
+    "highlight": "Điểm nổi bật"
   },
   "About": {
     "eyebrow": "Giới thiệu",

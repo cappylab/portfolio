@@ -10,9 +10,15 @@ export interface ProjectMeta {
   subtitle: string;
   description: string;
   thumbnail: string;
-  repository?: string;
   tech: string[];
   orb: string;
+  year: string;
+  role: string;
+  category: string;
+  highlight: string;
+  featured: boolean;
+  order: number;
+  repository?: string;
   link?: string;
   metrics?: { value: string; label: string }[];
 }
@@ -30,11 +36,19 @@ function extractMeta(raw: string): ProjectMeta {
 
 export function getAllProjects(): Project[] {
   const files = fs.readdirSync(WORK_DIR).filter((f) => f.endsWith(".mdx"));
-  return files.map((file) => {
-    const raw = fs.readFileSync(path.join(WORK_DIR, file), "utf-8");
-    const meta = extractMeta(raw);
-    return { slug: meta.slug, meta };
-  });
+  return files
+    .map((file) => {
+      const raw = fs.readFileSync(path.join(WORK_DIR, file), "utf-8");
+      const meta = extractMeta(raw);
+      return { slug: meta.slug, meta };
+    })
+    .sort((a, b) => a.meta.order - b.meta.order);
+}
+
+export function getFeaturedProjects(limit: number = 6): Project[] {
+  return getAllProjects()
+    .filter((project) => project.meta.featured)
+    .slice(0, limit);
 }
 
 export function getProjectBySlug(slug: string): Project | null {

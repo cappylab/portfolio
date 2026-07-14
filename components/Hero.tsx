@@ -1,51 +1,19 @@
-"use client";
-
-import { useEffect, useRef } from "react";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import Arrow from "./Arrow";
 
-export default function Hero() {
-  const t = useTranslations("Hero");
-  const heroRef = useRef<HTMLDivElement>(null);
-
-  /* Hero orb parallax — mouse-only devices */
-  useEffect(() => {
-    const hero = heroRef.current;
-    if (!hero) return;
-    const mq = window.matchMedia("(pointer: fine)");
-    if (!mq.matches) return;
-
-    const orbs = hero.querySelectorAll<HTMLDivElement>("[data-speed]");
-    let rafId = 0;
-    const handleMove = (e: MouseEvent) => {
-      cancelAnimationFrame(rafId);
-      rafId = requestAnimationFrame(() => {
-        const rect = hero.getBoundingClientRect();
-        const cx = (e.clientX - rect.left) / rect.width - 0.5;
-        const cy = (e.clientY - rect.top) / rect.height - 0.5;
-        orbs.forEach((orb) => {
-          const s = parseFloat(orb.dataset.speed || "1");
-          orb.style.transform = `translate(${cx * s * 50}px, ${cy * s * 50}px)`;
-        });
-      });
-    };
-    // Set transition once instead of per-frame
-    orbs.forEach((orb) => {
-      orb.style.transition = "transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)";
-    });
-    hero.addEventListener("mousemove", handleMove, { passive: true });
-    return () => {
-      hero.removeEventListener("mousemove", handleMove);
-      cancelAnimationFrame(rafId);
-    };
-  }, []);
+export default async function Hero() {
+  const t = await getTranslations("Hero");
 
   return (
-    <section ref={heroRef} className="relative min-h-[100svh] flex flex-col items-center justify-center px-6 text-center overflow-hidden">
-      {/* Parallax orbs */}
-      <div data-speed="2" className="absolute top-[20%] left-[15%] w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] rounded-full bg-sky-400/[0.05] blur-[80px] pointer-events-none" />
-      <div data-speed="1.2" className="absolute bottom-[15%] right-[15%] w-[200px] sm:w-[350px] h-[200px] sm:h-[350px] rounded-full bg-violet-400/[0.04] blur-[80px] pointer-events-none" />
-      <div data-speed="0.8" className="absolute top-[45%] right-[30%] w-[180px] sm:w-[250px] h-[180px] sm:h-[250px] rounded-full bg-fuchsia-400/[0.03] blur-[60px] pointer-events-none" />
+    <section className="relative min-h-[100svh] flex flex-col items-center justify-center px-6 text-center overflow-hidden">
+      <div className="absolute top-[20%] left-[15%] w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] rounded-full bg-sky-400/[0.04] blur-[60px] pointer-events-none" />
+      <div className="absolute bottom-[15%] right-[15%] w-[200px] sm:w-[350px] h-[200px] sm:h-[350px] rounded-full bg-violet-400/[0.035] blur-[60px] pointer-events-none" />
+      <div className="absolute top-[45%] right-[30%] w-[180px] sm:w-[250px] h-[180px] sm:h-[250px] rounded-full bg-fuchsia-400/[0.025] blur-[48px] pointer-events-none" />
+
+      <div data-testid="hero-signature" aria-hidden="true" className="hero-signature">
+        <span>H</span>
+        <span>J</span>
+      </div>
 
       <div className="relative z-10 max-w-3xl">
         <p className="reveal text-[12px] sm:text-[13px] text-white/55 tracking-[0.12em] uppercase mb-6 sm:mb-8">
@@ -66,7 +34,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-25 hidden sm:block" aria-hidden="true">
         <div className="w-[26px] h-[42px] border border-white/15 rounded-full flex justify-center pt-2">
           <div className="w-[3px] h-[6px] bg-white/25 rounded-full animate-bounce" />

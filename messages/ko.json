@@ -24,7 +24,12 @@
   "Work": {
     "eyebrow": "선별 작업물",
     "title": "만들어 온 것들.",
-    "viewCaseStudy": "사례 연구 보기"
+    "viewCaseStudy": "사례 연구 보기",
+    "catalogueEyebrow": "프로젝트 아카이브",
+    "catalogueTitle": "모든 작업물.",
+    "allWork": "모든 프로젝트 보기",
+    "role": "역할",
+    "highlight": "주요 결과"
   },
   "About": {
     "eyebrow": "소개",
