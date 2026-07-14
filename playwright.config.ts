@@ -10,7 +10,8 @@ export default defineConfig({
   },
   webServer: {
     command: "npm run dev -- --port 3100",
-    port: 3100,
+    url: "http://localhost:3100/",
+    timeout: 60_000,
     reuseExistingServer: true,
   },
 });

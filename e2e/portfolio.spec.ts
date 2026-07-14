@@ -81,6 +81,40 @@ test.describe("Home page", () => {
     await expect(page.getByLabel("Message")).toBeVisible();
   });
 
+  test("presents a product-builder story and professional social actions", async ({ page }) => {
+    await page.goto(BASE);
+
+    const about = page.locator("#about");
+    await expect(
+      about.getByRole("heading", {
+        name: "I design and build digital products worth using every day.",
+      })
+    ).toBeVisible();
+    await expect(about.getByText("Built with intent")).toBeVisible();
+
+    const socialActions = page.getByRole("group", { name: "Professional links" });
+    await expect(socialActions.getByRole("link", { name: "Email" })).toHaveAttribute(
+      "href",
+      "mailto:jeonghamin1909@gmail.com"
+    );
+    await expect(socialActions.getByRole("link", { name: "GitHub" })).toHaveAttribute(
+      "href",
+      "https://github.com/jhm1909"
+    );
+    await expect(socialActions.getByRole("link", { name: "LinkedIn" })).toHaveAttribute(
+      "href",
+      "https://www.linkedin.com/in/ha-min-jeong-a3a904401"
+    );
+    await expect(socialActions.locator("svg")).toHaveCount(4);
+
+    await socialActions
+      .getByRole("button", { name: "Copy Discord username cappyeo" })
+      .click();
+    await expect(socialActions.getByRole("status")).toHaveText(
+      "Discord username copied"
+    );
+  });
+
   test("skip to content link works", async ({ page }) => {
     await page.goto(BASE);
     await page.keyboard.press("Tab");

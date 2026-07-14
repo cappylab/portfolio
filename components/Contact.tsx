@@ -4,11 +4,13 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { socialLinks } from "@/lib/data";
 import Arrow from "./Arrow";
+import SocialIcon from "./SocialIcon";
 
 export default function Contact() {
   const t = useTranslations("Contact");
   const [formState, setFormState] = useState({ name: "", email: "", message: "" });
   const [formStatus, setFormStatus] = useState<"idle" | "sent">("idle");
+  const [copiedDiscord, setCopiedDiscord] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,6 +20,32 @@ export default function Contact() {
     setFormStatus("sent");
     setFormState({ name: "", email: "", message: "" });
     setTimeout(() => setFormStatus("idle"), 3000);
+  };
+
+  const handleDiscordCopy = async (username: string) => {
+    let copied = false;
+
+    try {
+      await navigator.clipboard.writeText(username);
+      copied = true;
+    } catch {
+      const fallback = document.createElement("textarea");
+      fallback.value = username;
+      fallback.setAttribute("readonly", "");
+      fallback.style.position = "fixed";
+      fallback.style.opacity = "0";
+      document.body.appendChild(fallback);
+      fallback.select();
+      copied = document.execCommand("copy");
+      fallback.remove();
+    }
+
+    if (copied) {
+      setCopiedDiscord(true);
+      window.setTimeout(() => setCopiedDiscord(false), 2500);
+    } else {
+      setCopiedDiscord(false);
+    }
   };
 
   return (
@@ -78,18 +106,48 @@ export default function Contact() {
             </button>
           </form>
 
-          <div className="mt-8 sm:mt-10 flex justify-center gap-8 sm:gap-10 text-[12px] text-white/30">
-            {socialLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white/70 transition-colors duration-300"
-              >
-                {link.label}
-              </a>
-            ))}
+          <div role="group" aria-label={t("socialLabel")} className="mt-8 sm:mt-10 grid grid-cols-2 gap-3">
+            {socialLinks.map((link) => {
+              const content = (
+                <>
+                  <SocialIcon name={link.id} className="size-4 shrink-0" />
+                  <span>{link.label}</span>
+                  {link.action === "copy" && (
+                    <span className="ml-auto text-[10px] font-mono text-white/25">{link.value}</span>
+                  )}
+                </>
+              );
+
+              if (link.action === "link") {
+                return (
+                  <a
+                    key={link.id}
+                    href={link.href}
+                    target={link.id === "email" ? undefined : "_blank"}
+                    rel={link.id === "email" ? undefined : "noopener noreferrer"}
+                    aria-label={link.label}
+                    className="liquid-glass-subtle flex min-h-14 items-center gap-3 rounded-2xl px-4 text-[13px] text-white/60 transition-colors duration-300 hover:text-white focus-visible:ring-2 focus-visible:ring-white/30 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                  >
+                    {content}
+                  </a>
+                );
+              }
+
+              return (
+                <button
+                  key={link.id}
+                  type="button"
+                  onClick={() => void handleDiscordCopy(link.value)}
+                  aria-label={t("discordCopyLabel", { username: link.value })}
+                  className="liquid-glass-subtle flex min-h-14 items-center gap-3 rounded-2xl px-4 text-left text-[13px] text-white/60 transition-colors duration-300 hover:text-white focus-visible:ring-2 focus-visible:ring-white/30 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                >
+                  {content}
+                </button>
+              );
+            })}
+            <p className="col-span-2 min-h-4 text-center text-[11px] text-white/35" role="status">
+              {copiedDiscord ? t("discordCopied") : ""}
+            </p>
           </div>
         </div>
       </div>
