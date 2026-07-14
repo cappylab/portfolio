@@ -28,9 +28,40 @@ export const experience: Experience[] = [
   { role: "Started web development", company: "Self-taught", period: "2024", desc: "Learning React, TypeScript, and Next.js from the ground up." },
 ];
 
-export const socialLinks = [
-  { label: "Email", href: "mailto:jeonghamin1909@gmail.com" },
-  { label: "GitHub", href: "https://github.com/jhm1909" },
+export type SocialLink =
+  | {
+      id: "email" | "github" | "linkedin";
+      label: "Email" | "GitHub" | "LinkedIn";
+      action: "link";
+      href: string;
+    }
+  | {
+      id: "discord";
+      label: "Discord";
+      action: "copy";
+      value: "cappyeo";
+    };
+
+export const socialLinks: SocialLink[] = [
+  {
+    id: "email",
+    label: "Email",
+    action: "link",
+    href: "mailto:jeonghamin1909@gmail.com",
+  },
+  {
+    id: "github",
+    label: "GitHub",
+    action: "link",
+    href: "https://github.com/jhm1909",
+  },
+  {
+    id: "linkedin",
+    label: "LinkedIn",
+    action: "link",
+    href: "https://www.linkedin.com/in/ha-min-jeong-a3a904401",
+  },
+  { id: "discord", label: "Discord", action: "copy", value: "cappyeo" },
 ];
 
 export const navLinks = [
