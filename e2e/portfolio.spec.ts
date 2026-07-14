@@ -76,9 +76,9 @@ test.describe("Home page", () => {
 
   test("contact form renders", async ({ page }) => {
     await page.goto(`${BASE}/#contact`);
-    await expect(page.getByLabel("Name")).toBeVisible();
-    await expect(page.getByLabel("Email")).toBeVisible();
-    await expect(page.getByLabel("Message")).toBeVisible();
+    await expect(page.getByRole("textbox", { name: "Name", exact: true })).toBeVisible();
+    await expect(page.getByRole("textbox", { name: "Email", exact: true })).toBeVisible();
+    await expect(page.getByRole("textbox", { name: "Message", exact: true })).toBeVisible();
   });
 
   test("presents a product-builder story and professional social actions", async ({ page }) => {
