@@ -9,10 +9,7 @@ export default function NotFound() {
       </div>
 
       <div className="relative text-center px-6">
-        <p className="text-[120px] sm:text-[180px] font-semibold tracking-[-0.05em] leading-none text-gradient-hero select-none">
-          404
-        </p>
-        <p className="text-[15px] sm:text-[17px] text-white/35 font-light mt-4 mb-10">
+        <p className="text-[15px] sm:text-[17px] text-white/35 font-light mb-10">
           This page doesn&apos;t exist or has been moved.
         </p>
         <Link

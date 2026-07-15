@@ -186,7 +186,11 @@ body {
   backdrop-filter: blur(8px) saturate(150%);
   border: 0.5px solid rgba(255, 255, 255, 0.06);
   border-radius: 999px;
-  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  transition:
+    background-color 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+    border-color 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+    box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+    transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 .liquid-glass-pill:hover {
   background: rgba(255, 255, 255, 0.08);
@@ -215,6 +219,12 @@ body {
   .liquid-glass-pill {
     -webkit-backdrop-filter: blur(6px) saturate(135%);
     backdrop-filter: blur(6px) saturate(135%);
+  }
+  .bg-ambient .ambient-orb {
+    filter: blur(64px);
+  }
+  .bg-ambient .ambient-orb:nth-child(n + 2) {
+    display: none;
   }
 }
 
@@ -332,7 +342,9 @@ button:hover .link-arrow {
 .btn-liquid {
   position: relative;
   overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  transition:
+    transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+    box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 .btn-liquid::before {
   content: '';
@@ -372,6 +384,11 @@ button:hover .link-arrow {
   width: 100%;
   aspect-ratio: 16 / 10;
   overflow: hidden;
+}
+
+.defer-project-card {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 38rem;
 }
 
 /* ===== Scrollbar ===== */

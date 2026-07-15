@@ -57,6 +57,25 @@ test.describe("Home page", () => {
     await expect(page.locator(".hero-backdrop > div")).toHaveCount(0);
   });
 
+  test("not-found page omits the decorative numeric status", async ({ page }) => {
+    const response = await page.goto(`${BASE}/this-route-does-not-exist`);
+
+    expect(response?.status()).toBe(404);
+    await expect(
+      page.getByText("This page doesn't exist or has been moved.")
+    ).toBeVisible();
+    await expect(page.getByText("404", { exact: true })).toHaveCount(0);
+    await expect(page.getByRole("link", { name: "Go home" })).toBeVisible();
+  });
+
+  test("defers project cards until they approach the viewport", async ({ page }) => {
+    await page.goto(BASE);
+    const cards = page.getByTestId("work-card");
+
+    await expect(cards).toHaveCount(3);
+    await expect(cards.first()).toHaveCSS("content-visibility", "auto");
+  });
+
   test("lists all projects on the catalogue route", async ({ page }) => {
     await page.goto(`${BASE}/work`);
     await expect(

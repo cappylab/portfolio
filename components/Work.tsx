@@ -124,7 +124,7 @@ export default async function Work({
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
           {projects.map((project, index) => (
-            <div key={project.slug} className="reveal">
+            <div key={project.slug} data-testid="work-card" className="reveal defer-project-card">
               <ProjectCard
                 project={project}
                 overlayLabel={t("viewCaseStudy")}
