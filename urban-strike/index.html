@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>URBAN STRIKE — Loading</title>
+  <style>
+    html,body{height:100%;margin:0;background:#05070a;color:#d7e4ea;font-family:system-ui,sans-serif}
+    body{display:grid;place-items:center}.box{text-align:center}.bar{width:260px;height:4px;background:#1b242a;overflow:hidden;margin:18px auto}.bar:after{content:"";display:block;width:45%;height:100%;background:#89d7ff;animation:a 1s infinite ease-in-out}@keyframes a{from{transform:translateX(-110%)}to{transform:translateX(330%)}}small{color:#82949e}
+  </style>
+</head>
+<body>
+  <div class="box"><h2>URBAN STRIKE</h2><div class="bar"></div><small>Đang nạp bản dựng FPS…</small></div>
+  <script>
+    (async()=>{
+      try{
+        const names=Array.from({length:7},(_,i)=>`chunks/chunk${String(i).padStart(2,'0')}.txt`);
+        const parts=await Promise.all(names.map(async n=>{const r=await fetch(n,{cache:'no-store'});if(!r.ok)throw new Error(`${n}: ${r.status}`);return (await r.text()).trim();}));
+        const binary=atob(parts.join(''));
+        const bytes=Uint8Array.from(binary,c=>c.charCodeAt(0));
+        const html=new TextDecoder('utf-8').decode(bytes);
+        document.open();document.write(html);document.close();
+      }catch(error){
+        document.body.innerHTML=`<div class="box"><h2>Không thể tải game</h2><p>${String(error)}</p><p>Hãy tải lại trang hoặc mở bằng Chrome/Edge trên máy tính.</p></div>`;
+        console.error(error);
+      }
+    })();
+  </script>
+</body>
+</html>
